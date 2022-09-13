@@ -223,9 +223,9 @@ def plot_2d_shape_embedding(data, embedding, min_dist, figsize, cutoff=5, font_s
             col_lab = cm(1.*j/NUM_COLORS)[:3]
             img = np.pad(img.astype(float), (padwidth,padwidth), "constant", constant_values=-1)
             img = np.array([np.array([[x/255,x/255,x/255] if x != -1 else col_lab for x in tmp]) for tmp in img])
-            axex.imshow(img, aspect='auto', interpolation='nearest', zorder=100000, extent=(x0, x1, y0, y1))
+            axex.imshow(img, aspect='auto', interpolation='nearest', zorder=100000, extent=(x0, x1, y0, y1),cmap="viridiris")
         else:
-            axex.imshow(img, aspect='auto', cmap=plt.cm.gray, interpolation='nearest', zorder=100000, extent=(x0, x1, y0, y1))
+            axex.imshow(img, aspect='auto', interpolation='nearest', zorder=100000, extent=(x0, x1, y0, y1))
         if show_numbers:
             plt.text(x1, y1, str(i), color="black", fontdict={"fontsize":10,"fontweight":'bold',"ha":"left", "va":"baseline"})
 
